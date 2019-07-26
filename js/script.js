@@ -36,26 +36,24 @@ function createUserElement(user) {
     userListItem.innerHTML =
         `<img src="${user.avatar_url}" alt="login name">
         <h3>${user.login}</h3>
-        <a href="#" onclick="renderRepos('${user.repos_url}','${user.login}')">Repositories</a>
+        <a href="#" onclick="renderRepos('${user.repos_url}','${user.login}','${user.avatar_url}')">Repositories</a>
         <a href = "${user.html_url}" target="_blank">Full Profile </a>`
     return userListItem;
 }
 
 // UI for repositories screen
-function renderRepos(reposURL, userName) {
+function renderRepos(reposURL, userName, userAvatar) {
     fetch(reposURL)
         .then(response => response.json())
         .then(res => {
-            const headerPageHeadingUI = document.querySelector("header h1")
-            headerPageHeadingUI.textContent = userName;
-            //renderReposHeader();
+            headerUI.innerHTML =
+                `<img src = "${userAvatar}" alt = "user photo" >            
+                <div>${userName}'s Repositories (${reposURL.length})<div>`;
             renderReposList(res);
         })
         .catch(error => console.error(error));
 }
 
-function renderReposHeader() {
-}
 
 function renderReposList(reposList) {
     mainContentUI.innerHTML = "";
