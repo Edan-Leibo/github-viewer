@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Github Viewer</title>
 </head>
 
@@ -12,9 +13,13 @@
     <header>
         <h1>Github Viewer</h1>
     </header>
-    <input type="text" name="search-user-field" class="user-search-field">
-    <button class="user-search-submit">search</button>
     <section class="main-content">
+        <div class="search-group">
+            <input type="text" name="search-field" class="search-group--search-field">
+            <button class="search-group--search-button">Search</button>
+        </div>
+        <ul class="items-list users-list">
+        </ul>
     </section>
     <script src="./js/script.js"></script>
 </body>
